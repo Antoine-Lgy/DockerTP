@@ -1,0 +1,6 @@
+python:
+ image: python
+mongodb:
+ image: mongo
+nea4j:
+ image: neo4j
