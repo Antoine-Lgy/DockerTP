@@ -1,5 +1,5 @@
 python:
- build: dockerfile
+ image: pythondock
 mongodb:
  image: mongo
 neo4j:
