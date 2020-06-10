@@ -2,5 +2,7 @@ python:
  build: .
 mongodb:
  image: mongo
+ MONGO_INITDB_ROOT_USERNAME: antoine
+ MONGO_INITDB_ROOT_PASSWORD: kylian
 neo4j:
  image: neo4j
