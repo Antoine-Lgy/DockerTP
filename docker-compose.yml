@@ -3,6 +3,7 @@ version: '2.2'
 services:
   python:
     build: .
+    command: "python3 app.py"
     links:
       - mongodb
       - neo4j
@@ -15,6 +16,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: antoine
       MONGO_INITDB_ROOT_PASSWORD: kylian
+      MONGODB_DATABASE: my_db
 
   neo4j:
     image: neo4j
