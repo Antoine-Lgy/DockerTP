@@ -1,10 +1,18 @@
 from pymongo import MongoClient
 import pandas as pd
 
-client = MongoClient(port=27017)
-db = client.my_db
+#Data à importer
+data = pd.read_csv("./movies.csv",sep=",")
 
-data = pd.read_csv("movies.csv",sep=";")
+#MongoDB
 
-result=db.reviews.insert_one(data)
+try:
+  client = MongoClient('mongodb', 27017)
+  db = client.my_db
+  print("server version : ", client.server_info()["version"])
+  print("",str(db))
+except:
+    print("Erreur importation sur MongoDB")
+
+#Neo4j
 
