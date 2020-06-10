@@ -1,8 +1,20 @@
-python:
- build: .
-mongodb:
- image: mongo
- MONGO_INITDB_ROOT_USERNAME: antoine
- MONGO_INITDB_ROOT_PASSWORD: kylian
-neo4j:
- image: neo4j
+version: '2.2'
+
+services:
+  python:
+    build: .
+    links:
+      - mongodb
+      - neo4j
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: antoine
+      MONGO_INITDB_ROOT_PASSWORD: kylian
+  neo4j:
+    image: neo4j
+    ports:
+      - 7474:7474
