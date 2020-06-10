@@ -6,6 +6,7 @@ services:
     links:
       - mongodb
       - neo4j
+
   mongodb:
     image: mongo
     restart: always
@@ -14,7 +15,11 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: antoine
       MONGO_INITDB_ROOT_PASSWORD: kylian
+
   neo4j:
     image: neo4j
     ports:
       - 7474:7474
+      - 7687:7687
+    environment:
+      NEO4J_AUTH: neo4j/kylian
